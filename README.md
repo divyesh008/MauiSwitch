@@ -3,7 +3,7 @@ This is a Switch control that would allow you to set ThumbColor and OnColor base
 
 ## How to use it?
 - Install the [NuGet package](https://www.nuget.org/packages/DBTech.Maui.SwitchCotrol/1.0.0#readme-body-tab) into your project
-- Use it in your code where you want it [this](https://github.com/divyesh008/MauiSwitch/blob/main/TestApp/TestApp/MainPage.xaml#L26) 
+- Use it in your code where you want it like [this](https://github.com/divyesh008/MauiSwitch/blob/main/TestApp/TestApp/MainPage.xaml#L26) 
 
 ## Results:
 
