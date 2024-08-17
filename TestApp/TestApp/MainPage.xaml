@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:ColorSwitch.Controls;assembly=ColorSwitch"
+             x:Class="TestApp.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Blue" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Spacing="15" Padding="15,10">
+
+        <Label Text="Use of Custom Switch control" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+        <Grid ColumnDefinitions="*, Auto">
+
+            <Label Grid.Column="0" Text="Hello World! I'm SwitchControl" TextColor="Blue" VerticalOptions="Center"/>
+
+            <control:SwitchControl
+                Grid.Column="1"
+                x:Name="customSwitchControl"
+                IsToggled="False"
+                ThumbOnColor="Green"
+                ThumbOffColor="WhiteSmoke"
+                TrackOnColor="LightGreen"
+                TrackOffColor="{StaticResource Gray300}"/>
+
+        </Grid>
+
+        <control:SwitchControl
+            x:Name="customSwitchWithLabel"
+            Padding="5,0"
+            LabelStyle="{StaticResource LabelStyle}"
+            IsToggled="False"
+            ThumbOffColor="WhiteSmoke"
+            ThumbOnColor="Green"
+            TrackOnColor="LightGreen"
+            TrackOffColor="OrangeRed"
+            HorizontalOptions="Start" >
+            <control:SwitchControl.Triggers>
+                <DataTrigger TargetType="control:SwitchControl"
+                                Binding="{Binding IsToggled, Source={x:Reference customSwitchWithLabel}}"
+                                Value="True">
+                    <Setter Property="LabelText" Value="Switch is ON"/>
+                </DataTrigger>
+                <DataTrigger TargetType="control:SwitchControl"
+                                Binding="{Binding IsToggled, Source={x:Reference customSwitchWithLabel}}"
+                                Value="False">
+                    <Setter Property="LabelText" Value="Switch is OFF"/>
+                </DataTrigger>
+            </control:SwitchControl.Triggers>
+        </control:SwitchControl>
+
+    </VerticalStackLayout>
+
+</ContentPage>
+
